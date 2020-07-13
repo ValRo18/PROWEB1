@@ -1,0 +1,20 @@
+<html>
+<title>BlackJack</title>
+<body>  
+    <form action="/uploads/type/" method="post">
+        
+        <button type="button" class="btn btn-dark" (click)="generarBaraja()">Start</button>
+
+        <button  type="button"  class="btn btn-dark" (click)="getCarta(1)">Hit</button>
+        <br>
+        <button type="button" class="btn btn-dark"(click)="playCasa()">Stand</button>
+        
+        <div id="win" class="alert alert-light" role="alert">
+            
+        </div>  
+        <div id="lost" class="alert alert-light" role="alert">
+            
+        </div>
+    </form>
+</body>
+</html>
