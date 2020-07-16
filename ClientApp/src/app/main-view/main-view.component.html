@@ -1,0 +1,57 @@
+<div class="padre">
+
+    <div class="contenedor">
+        <div class="label_point">
+            <div class="alert alert-primary" role="alert">
+                Partidas ganadas casa: {{game_wins.home}}
+            </div>
+        </div>
+        <div class="panel_user" *ngIf="!game_over">
+            <div class="botones" *ngIf="stay">
+                <input class="boton" (click)="pedir_carta()" style="background-color: blue" value="Pedir Carta" type="submit" />
+                <input class="boton" (click)="stay_game()" style="background-color: red" value="Parar" type="submit" />
+            </div>
+        </div>
+        
+        <div class="home_card">
+            <div class="home_home_card">
+                <img src="{{image_home}}" alt="" width="1%">
+            </div>
+        <div class="user_card">
+            <div class="user_card">
+                <img src="{{image_home}}" alt="" style="position: absolute; width: -0%; padding:0px; margin: -2%; width:1%" >
+            </div>
+        <div class="box_card">
+            <div class="absolute" *ngFor="let card of home_cards">
+                <img src="{{card}}">
+                </div>
+            <div class="absolute" *ngFor="let card of user_cards" style="position: absolute; width: -0%; padding:0px; margin: -2%;  " >
+                <img src="{{card}}" >
+                </div>
+        </div>
+            
+            
+            <div class="home_start_option" *ngIf="game_over">
+                <input class="boton" (click)="new_game()" style="background-color: darkorange" value="Nueva Partida" type="submit" />
+            </div>
+        </div>
+
+    </div>
+    <div class="contenedor">
+        <div class="label_point">
+            <div class="alert alert-success" role="alert" alt="">
+                Partidas ganadas usuario: {{game_wins.user}}
+            </div>
+        </div>
+        <div class="panel_user" *ngIf="!game_over">
+            <div class="botones" *ngIf="!stay">
+                <input class="boton" (click)="pedir_carta()" style="background-color: blue" value="Pedir Carta" type="submit" />
+                <input class="boton" (click)="stay_game()" style="background-color: red" value="Parar" type="submit" />
+            </div>
+        </div>
+        <div class="user_card">
+            <img src="{{image}}" alt="" width="15%">
+        </div>
+    </div>
+
+</div>

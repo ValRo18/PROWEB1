@@ -1,32 +1,6 @@
-body{
-  background-color: #368338;
-}
+/* You can add global styles to this file, and also import other style files */
 
-form{
-  background-color: gainsboro;
-  margin-left:-420px;
-  width: 320px;
-  height: 940px;
-
-}
-button{
-  width: 150px;
-  position: relative;
-  margin-top: 50px;
-  margin-left: 85px;
-}
-.alert{
-  margin-top: 130px !important;
-  height: 45px !important;
-
-}
-#lost{
-  margin-top: 100px !important;
-  height: 60px !important;
-}
-#win{
-  height: 60px !important;
-}
-.btn{
-  font-size: 22px;
+body {
+    margin: 0;
+    padding: 0
 }

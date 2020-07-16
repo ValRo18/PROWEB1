@@ -1,0 +1,82 @@
+html,
+.padre {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 10%;
+    margin: auto;
+    border: 20px solid black;
+    background-image: url('../../assets/img/table.jpg');
+}
+
+.label_point {
+    width: 17%;
+}
+
+.contenedor {
+    height: 49%;
+    margin: 1% 1%;
+}
+
+.panel_user {
+    width: 44.3%;
+    float: left;
+    margin-top: 5%;
+}
+
+.user_card {
+    width:55.7%;
+    float:right;
+    position: inherit;
+    margin-top: 5%;
+    
+}
+
+.home_card {
+    width: 55.7%;
+    float: right;
+    margin-top: 5%;
+}
+
+.home_home_card {
+    width: 5%;
+    float: left;
+}
+
+.home_start_option {
+    width: 50%;
+    float: right;
+    margin-top: 5%;
+}
+
+.botones {
+    margin-left: 60%;
+}
+
+.boton {
+    width: 50%;
+    height: 20%;
+    margin: 5px;
+    padding: 4px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    font-size: 10px;
+    line-height: 32px;
+    text-transform: uppercase;
+    float: left;
+    text-align: center;
+    color: white;
+}
+
+.boton:hover {
+    opacity: 0.50;
+    -moz-opacity: .50;
+    filter: alpha (opacity=50);
+}
+
+.boton a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 5px 5px 0;
+}
