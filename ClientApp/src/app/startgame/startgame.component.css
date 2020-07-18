@@ -1,0 +1,26 @@
+html,
+.botones {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 10%;
+    margin: auto;
+    border: 20px solid black;
+    background-image: url('../../assets/img/game-placeholder.jpg');
+}
+#button{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+   top: 50%;
+   left: 50%;
+   margin-top: -75px;
+   margin-left: -75px;
+   align-items: center;
+    justify-content: center;
+    z-index: 9;
+}
+#button:hover {
+    background-color: rgba(14, 13, 11, 0.877); 
+    color: white;
+}
