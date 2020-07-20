@@ -1,57 +1,148 @@
 <div class="padre">
-
     <div class="contenedor">
-        <div class="label_point">
-            <div class="alert alert-primary" role="alert">
-                Partidas ganadas casa: {{game_wins.home}}
-            </div>
-        </div>
-        <div class="panel_user" *ngIf="!game_over">
-            <div class="botones" *ngIf="stay">
-                <input class="boton" (click)="pedir_carta()" style="background-color: blue" value="Pedir Carta" type="submit" />
-                <input class="boton" (click)="stay_game()" style="background-color: red" value="Parar" type="submit" />
-            </div>
-        </div>
-        
-        <div class="home_card">
-            <div class="home_home_card">
-                <img src="{{image_home}}" alt="" width="1%">
-            </div>
-        <div class="user_card">
-            <div class="user_card">
-                <img src="{{image_home}}" alt="" style="position: absolute; width: -0%; padding:0px; margin: -2%; width:1%" >
-            </div>
-        <div class="box_card">
-            <div class="absolute" *ngFor="let card of home_cards">
-                <img src="{{card}}">
+        <div class="row">
+            <div class="column">
+                <div class="alert alert-primary" role="alert">
+                    Partidas ganadas casa: {{game_wins.home}}
+                    <br>
+                    La puntuación es de: {{sum_home}}
+                  </div>
+                <div class="panel_user" *ngIf="!game_over">
+                    <div class="botones" *ngIf="stay" >
+                        <input class="btn btn-primary" (click)="pedir_carta()"  value="Pedir Carta" type="submit" />
+                        <input class="btn btn-danger" (click)="stay_game()" value="Parar" type="submit" />
+                    </div>
                 </div>
-            <div class="absolute" *ngFor="let card of user_cards" style="position: absolute; width: -0%; padding:0px; margin: -2%;  " >
-                <img src="{{card}}" >
-                </div>
-        </div>
-            
-            
-            <div class="home_start_option" *ngIf="game_over">
-                <input class="boton" (click)="new_game()" style="background-color: darkorange" value="Nueva Partida" type="submit" />
             </div>
-        </div>
-
+            <div class="column">
+                <div class="home_card">
+                    <div class="img_user">
+                        <div style="position: absolute; top: 0px;"> 
+                            <div style="left: 40px;">
+                                <img src="{{home_cards[0]}}" alt="" width="60%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img_user">
+                        <div style="position: absolute; top: 28px;"> 
+                            <div style="left: 40px;">
+                                <img src="{{home_cards[1]}}" alt="" width="60%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img_user">
+                        <div style="position: absolute; top: 56px;"> 
+                            <div style="left: 40px;">
+                                <img src="{{home_cards[2]}}" alt="" width="60%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img_user">
+                        <div style="position: absolute; top: 84px;"> 
+                            <div style="left: 40px;">
+                                <img src="{{home_cards[3]}}" alt="" width="60%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img_user">
+                        <div style="position: absolute; top: 112px;"> 
+                            <div style="left: 40px;">
+                                <img src="{{home_cards[4]}}" alt="" width="60%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img_user">
+                        <div style="position: absolute; top: 140px;"> 
+                            <div style="left: 40px;">
+                                <img src="{{home_cards[5]}}" alt="" width="60%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img_user">
+                        <div style="position: absolute; top: 168px;"> 
+                            <div style="left: 40px;">
+                                <img src="{{home_cards[6]}}" alt="" width="60%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="home_start_option" *ngIf="game_over">
+                    <input class="boton" (click)="new_game()" style="background-color: darkorange" value="Nueva Partida" type="submit" />
+                </div>
+            </div>
+          </div>
     </div>
     <div class="contenedor">
-        <div class="label_point">
-            <div class="alert alert-success" role="alert" alt="">
-                Partidas ganadas usuario: {{game_wins.user}}
+        <div class="row">
+            <div class="column" >
+                <div class="alert alert-warning" role="alert">
+                    Partidas ganadas usuario: {{game_wins.user}}
+                    <br>
+                    La puntuación es de: {{sum}}
+                </div>
+                <div class="panel_user" *ngIf="!game_over">
+                    <div class="botones" *ngIf="!stay">
+                        <input class="btn btn-primary" (click)="pedir_carta()" value="Pedir Carta" type="submit" />
+                        <input class="btn btn-danger" (click)="stay_game()"  value="Parar" type="submit" />
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="panel_user" *ngIf="!game_over">
-            <div class="botones" *ngIf="!stay">
-                <input class="boton" (click)="pedir_carta()" style="background-color: blue" value="Pedir Carta" type="submit" />
-                <input class="boton" (click)="stay_game()" style="background-color: red" value="Parar" type="submit" />
+            <div class="column">
+                <div class="user_card">
+                    <div class="img_user">
+                        <div style="position: absolute; top: 0px;"> 
+                            <div style="left: 40px;">
+                                <img src="{{user_cards[0]}}" alt="" width="60%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img_user">
+                        <div style="position: absolute; top: 28px;"> 
+                            <div style="left: 40px;">
+                                <img src="{{user_cards[1]}}" alt="" width="60%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img_user">
+                        <div style="position: absolute; top: 56px;"> 
+                            <div style="left: 40px;">
+                                <img src="{{user_cards[2]}}" alt="" width="60%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img_user">
+                        <div style="position: absolute; top: 84px;"> 
+                            <div style="left: 40px;">
+                                <img src="{{user_cards[3]}}" alt="" width="60%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img_user">
+                        <div style="position: absolute; top: 112px;"> 
+                            <div style="left: 40px;">
+                                <img src="{{user_cards[4]}}" alt="" width="60%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img_user">
+                        <div style="position: absolute; top: 140px;"> 
+                            <div style="left: 40px;">
+                                <img src="{{user_cards[5]}}" alt="" width="60%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img_user">
+                        <div style="position: absolute; top: 168px;"> 
+                            <div style="left: 40px;">
+                                <img src="{{user_cards[6]}}" alt="" width="60%">
+                            </div>
+                        </div>
+                    </div>
+                </div> 
             </div>
-        </div>
-        <div class="user_card">
-            <img src="{{image}}" alt="" width="15%">
-        </div>
+          </div>
     </div>
 
 </div>

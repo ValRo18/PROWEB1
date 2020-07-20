@@ -3,54 +3,55 @@ html,
     position: absolute;
     height: 100%;
     width: 100%;
-    padding: 10%;
+    padding: 2%;
     margin: auto;
-    border: 20px solid black;
     background-image: url('../../assets/img/table.jpg');
-}
-
-.label_point {
-    width: 17%;
 }
 
 .contenedor {
     height: 49%;
-    margin: 1% 1%;
+}
+
+*{
+    box-sizing: border-box;
+}
+  
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+}
+  
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .panel_user {
-    width: 44.3%;
+    width: 100%;
     float: left;
     margin-top: 5%;
+    margin-left: 20%;
 }
 
 .user_card {
     width:55.7%;
     float:right;
-    position: inherit;
-    margin-top: 5%;
-    
+}
+
+.img_user{
+    position: relative;
 }
 
 .home_card {
     width: 55.7%;
     float: right;
-    margin-top: 5%;
 }
 
-.home_home_card {
-    width: 5%;
-    float: left;
-}
-
-.home_start_option {
-    width: 50%;
-    float: right;
-    margin-top: 5%;
-}
 
 .botones {
-    margin-left: 60%;
+    margin-left: 10%;
 }
 
 .boton {
@@ -80,3 +81,8 @@ html,
     text-decoration: none;
     padding: 5px 5px 5px 0;
 }
+
+.home_start_option{
+    margin-top: 30%;
+}
+

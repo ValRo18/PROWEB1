@@ -22,6 +22,7 @@ export class MainViewComponent implements OnInit {
     user: 0,
     home: 0
   }
+  public first_time: Boolean = true;
 
   constructor(
     private _card_service: BlackJackService
@@ -36,6 +37,7 @@ export class MainViewComponent implements OnInit {
   }
 
   stay_game(){
+    this.first_time = true;
     if(this.stay){
       if(this.sum == this.sum_home){
         this.won_message('The same result, but the home the house always wins!!!');
@@ -66,29 +68,51 @@ export class MainViewComponent implements OnInit {
     });
   }
 
+
   async pedir_carta(){
-    await this._card_service.draw_card(this.id_shuffle).toPromise()
-    .then((res) => {
-      let card = res['cards'];
-      if(!this.game_over){
+    if(this.first_time === true){
+      this. first_time = false;
+      await this._card_service.start_game(this.id_shuffle).toPromise()
+        .then((res) => {
+          let card = res['cards'];
           if(!this.stay){
-            this.image = card[0].image;
-            this.user_cards.push(this.image);
+            card.forEach(element => {
+              this.image = element.image;
+              this.user_cards.push(this.image);
+              this.sum_card_user(element.value);
+            });
           }else{
-            this.image_home = card[0].image;
-            this.home_cards.push(this.image_home);
+            card.forEach(element => {
+              this.image_home = element.image;
+              this.home_cards.push(this.image_home);
+              this.sum_card_user(element.value);
+            });
           }
-          this.sum_card_user(card[0].value);
-        }else{
-          this.lose_message('El juego termino, debe iniciar de nuevo una partida.');
-        }
-        console.log(this.user_cards);
-        console.log(this.home_cards);
-        
-    })
-    .catch(err => {
-      console.log(JSON.stringify(err));
-    });
+      })
+      .catch(err => {
+        console.log(JSON.stringify(err));
+      });
+    }else{
+      await this._card_service.draw_card(this.id_shuffle).toPromise()
+        .then((res) => {
+          let card = res['cards'];
+          if(!this.game_over){
+            if(!this.stay){
+              this.image = card[0].image;
+              this.user_cards.push(this.image);
+            }else{
+              this.image_home = card[0].image;
+              this.home_cards.push(this.image_home);
+            }
+            this.sum_card_user(card[0].value);
+          }else{
+            this.lose_message('El juego termino, debe iniciar de nuevo una partida.');
+          }
+        })
+      .catch(err => {
+        console.log(JSON.stringify(err));
+      });
+    }
   }
   new_game(){
     this.game_over = false;
@@ -100,6 +124,7 @@ export class MainViewComponent implements OnInit {
     this.start();
     this.home_cards = [];
     this.user_cards = [];
+    this.first_time =  true;
   }
 
   save_in_local_storage(who: string){

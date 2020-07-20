@@ -15,6 +15,10 @@ export class BlackJackService {
     const url =  SERVICE_URL + '/new/shuffle/?deck_count=1';
     return this.http.get( url);
   }
+  start_game(id_shuffle: String){
+    const url =  SERVICE_URL + '/' + id_shuffle + '/draw/?count=2';
+    return this.http.get( url);
+  }
   draw_card(id_shuffle: String){
     const url =  SERVICE_URL + '/' + id_shuffle + '/draw/?count=1';
     return this.http.get( url);
