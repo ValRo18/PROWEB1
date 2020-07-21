@@ -85,4 +85,11 @@ html,
 .home_start_option{
     margin-top: 30%;
 }
+#id{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 10%;
+    margin: auto;
+}
 
